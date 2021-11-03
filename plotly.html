@@ -11,7 +11,7 @@
 
 
 
-<title>Judy’s Academic and Professional Experiences</title>
+<title>Plotly</title>
 
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -355,46 +355,45 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Judy’s Academic and Professional Experiences</h1>
+<h1 class="title toc-ignore">Plotly</h1>
 
 </div>
 
 
-<div id="education" class="section level2">
-<h2>Education</h2>
-<p>Judy received her Bachelor’s Degree in Global Public Health and Anthropology from New York University in May 2020. Currently, she is a second year Master of Public Health student in the department of Epidemiology at Columbia University’s Mailman School of Public Health. She is also completing a certificate in Chronic Disease Epidemiology. She will be graduating with her MPH in May 2022. She also has an Associates degree in biology from the City University of New York’s (CUNY) Medgar Evers College.</p>
-</div>
-<div id="grad-classes-taken-by-semester" class="section level2 tabset tabset-fade tabset-pills">
-<h2 class="tabset tabset-fade tabset-pills">Grad Classes Taken by Semester</h2>
-<div id="fall-2020" class="section level3">
-<h3>Fall 2020</h3>
-<p>Foundations of Public Health, Research Methods and Applications, Determinants of Health, Public Health Interventions, Global &amp; Developmental Prospective, Health Systems, Integration of Science and Practice I</p>
-</div>
-<div id="spring-2021" class="section level3">
-<h3>Spring 2021</h3>
-<p>Analysis of Categorical Data, Design and Conduct of Observational Epidemiology (Epi II), Application of Epidemiologic Research Methods (SAS), Epidemiology of Chronic Disease, Epidemiology of Chronic Disease Seminar, Personal Leadership in Public Health, Integration of Science and Practice II,</p>
-</div>
-<div id="fall-2021" class="section level3">
-<h3>Fall 2021</h3>
-<p>Applied Epidemiologic Analysis (Epi III), Data Science, Cancer Epidemiology, Spatial Epidemiology, Public Health GIS, Masters Essay in Epidemiology I, Epidemiology of Chronic Disease Seminar</p>
-</div>
-</div>
-<div id="work" class="section level2">
-<h2>Work</h2>
-<p>Currently, Judy is a full time intern at the National Black Leadership Commission on Health. She works on program planning, specifically with the Maternal Health Program and the Young People Opinion Leadership. She is a research assistant for the The Systems Improvement at District Hospitals and Regional Training of Emergency Care (sidHARTe) program, which focuses on addressing and improving the Three Delays to Care in Maternal and Child Health in Ghana. Through this position, Judy conducts data cleaning, works on SOPs, helps write reports for funders, and conducts literature reviews. Currently, Judy is the United States Programs Manager for a global health non-profit called Sustainable Impact Makers International (SIMI) which is based in New York and Accra, Ghana. Through this position, Judy oversee all the US based programs which are focused on improving immigration health, health education, and access to care. She often collaborates with the Ghana Programs Manager to assist in the Ghana programs such as the Obaatanpa program.</p>
-</div>
-<div id="practicum" class="section level2">
-<h2>Practicum</h2>
-<p>This past summer(2021), Judy completed her practicum at ICAP Global Health, working on a biobehavioral survey on HIV services and treatment for men who have sex with men (MSM) and people who inject drugs (PWID) in selected cities in Zambia. She presented her research at the Mailman’s Epidemiology Department’s Masters Student Day.</p>
-</div>
-<div id="honors" class="section level2">
-<h2>Honors</h2>
-<p>Judy has recieved numerous awards such as the 2020 all university, New York University Outstanding Service Award for Beloved Community as well as the 2020 Most Influential Womxn award from NYU The Academic Achievement Program. In 2019, Judy also won the NYU Diversity Undergraduate Research Incubator Research Grant to aid her research the prefrontal cortex and its connection to Anorexia Nervosa.</p>
-</div>
-<div id="skills" class="section level2">
-<h2>Skills</h2>
-<p>Judy is skilled in R Studio, SAS, and QGIS. She also has experience using Microsoft Office. She can speak English and Twi fluently and is an intermediate Mandarin speaker. Judy utilizes a highly collaborative approach when working with others. From comments, emails and reviews, others have called Judy highly adaptable, innovative, and tenacious.</p>
-<p><img src="images/JFgrad.png" /></p>
+<div id="examples-of-plotly" class="section level1">
+<h1>Examples of Plotly</h1>
+<p>We are going to be looking at the NYC Restaurant inspection data. Restricted to American cuisine and SI to keep grade/critical_flag .</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.5     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.1     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(dplyr)
+library(plotly)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<pre class="r"><code>library(p8105.datasets)</code></pre>
+<pre class="r"><code>data(&quot;rest_inspec&quot;) 
+
+rest_inspec2 =
+  rest_inspec %&gt;%
+  select(boro, cuisine_description, dba, zipcode, violation_code, violation_description, grade, grade_date) %&gt;%
+filter(boro == &quot;Bronx&quot;)
+
+#the filter thing was not working for me</code></pre>
 </div>
 
 
