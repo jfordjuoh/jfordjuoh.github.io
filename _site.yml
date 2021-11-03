@@ -4,7 +4,7 @@ navbar:
   title: "Home"
   right:
     - text: "Experience"
-      href: experience.html
+      href: Experience.html
     - icon: fa-envelope fa-lg
       href: mailto:<judy3fordjuoh@gmail.com>
     - icon: fa-github fa-lg
