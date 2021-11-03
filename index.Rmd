@@ -1,0 +1,15 @@
+---
+title: "Welcome to Judy Fordjuoh's Website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# Hello! 
+
+![](images/JF.png)
+
+# Warm Remarks! 
+Welcome to Judy's website! This website is her little pinch of the internet. We hope that you will not only learn more about her, but connect and identify with her on various levels. Judy is a first generation Ghanaian-American women raised in Brooklyn, NY. Currently, she is a second year Master of Public Health student in the department of Epidemiology at Columbia University's Mailman School of Public Health. She is also completing a certificate in Chronic Disease Epidemiology. This past summer, she completed her practicum at ICAP Global Health, working on a biobehavioral survey on HIV services and treatment for men who have sex with men (MSM) and people who inject drugs (PWID) in selected cities in Zambia. She recieved her Bachelor's Degree in Global Public Health and Anthropology from New York University in May 2020. She will be graduating with her MPH in May 2022. Beginning January 2022, Jusy will be seeking full time job opportunites. If you have any infomration or opportunites that you believe will be a good match for Judy, please do not hesitate to email her or connect with her via Linked In. Thank you and enjoy the site!
