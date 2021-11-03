@@ -4,7 +4,7 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
+
 ---
 
 # The following information is about Judy's academic and professional experiences. 
