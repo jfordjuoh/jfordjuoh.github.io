@@ -41,7 +41,12 @@ Row
 rest_inspec2 %>% 
   count(grade) %>% 
   mutate(grade = fct_reorder(grade, n)) %>% 
-  plot_ly(x = ~grade , y = ~n, color = ~grade, type = "bar", colors = "viridis")
+  plot_ly(x = ~grade , y = ~n, color = ~grade,
+          type = "bar", colors = "viridis") %>% 
+  layout(title = 'Number of Restaurants in Staten Island per Letter Grade',
+         yaxis = list(title = "Number of Restaurants"),
+         xaxis = list(title =  "Letter Grade")
+         )
 ```
    
     
@@ -54,7 +59,11 @@ plot_ly(
     x = ~zipcode, y = ~cuisine_description, 
     type = "scatter", text = ~dba,
     mode = "markers",
-    color = ~grade, alpha = 0.5)
+    color = ~grade, alpha = 0.5) %>% 
+  layout(title = 'Types of Cuisine Located in Each Staten Island Zip Code',
+         yaxis = list(title = "Type of Cuisine"),
+         xaxis = list(title =  "Zip Code")
+         )
 ```
 
 Row
@@ -65,7 +74,11 @@ Row
 ```{r}
 #GRADE VS SCORE (box)
 rest_inspec2 %>% 
-  plot_ly(x = ~grade, y = ~score, color = ~grade, type = "box", colors = "viridis")
+  plot_ly(x = ~grade, y = ~score, color = ~grade, type = "box", colors = "viridis") %>% 
+  layout(title = 'Distribution of Scores per Grade of Staten Island Resturants',
+         yaxis = list(title = "Score"),
+         xaxis = list(title =  "Letter Grade")
+         )
 ```
 
 ### Chart 4
@@ -74,5 +87,9 @@ rest_inspec2 %>%
 #ZIPCODE VS SCORE
 rest_inspec2 %>% 
   plot_ly(x = ~zipcode, y = ~score, color = ~grade, type = "scatter",
-          text = ~dba, mode = "markers", colors = "viridis")
+          text = ~dba, mode = "markers", colors = "viridis") %>% 
+  layout(title = 'Scores of Staten Island Restuarnts by Zip Codes',
+         yaxis = list(title = "Score"),
+         xaxis = list(title =  "Zip Code")
+         )
 ```
