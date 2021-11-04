@@ -1,20 +1,21 @@
 ---
-title: "Plotly"
+title: "Dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
-
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
 ---
 
-```{r}
+```{r setup, include=FALSE}
+library(flexdashboard)
 library(tidyverse)
 library(dplyr)
 library(plotly)
 library(p8105.datasets)
 ```
 
-# Loading and cleaning data
+#Loading and Cleaning the Data
 ```{r}
 data("rest_inspec") 
 
@@ -27,38 +28,54 @@ filter(boro == "STATEN ISLAND",
        !grade == "Not Yet Graded", 
        !grade == "P", 
        !grade == "Z")  
-  
-#why isn't my filter working in one line?
+
 ```
 
-#Making Plotly Plots
+
+Column {data-width=250}
+-----------------------------------------------------------------------
+# Number of restaurants per grade (Bar Graph)
+### Chart A
+
 ```{r}
-#YES: Number of restaurants per grade
+#Number of restaurants per grade (Bar Graph)
 rest_inspec2 %>% 
   count(grade) %>% 
   mutate(grade = fct_reorder(grade, n)) %>% 
   plot_ly(x = ~grade , y = ~n, color = ~grade, type = "bar", colors = "viridis")
+```
 
+Column {data-width=250}
+-----------------------------------------------------------------------
+# ZIPCODE VS CUISINE (Scatter Plot)
+### Chart B
 
-#One of the plots: ZIPCODE VS CUISINE (YES)
+```{r}
+#ZIPCODE VS CUISINE (scatter)
 rest_inspec2 %>% 
 plot_ly(
     x = ~zipcode, y = ~cuisine_description, 
     type = "scatter", text = ~dba,
     mode = "markers",
     color = ~grade, alpha = 0.5)
+```
 
+#GRADE VS SCORE (Box Plot)
+### Chart C
 
-#GRADE VS SCORE 
+```{r}
+#GRADE VS SCORE (box)
 rest_inspec2 %>% 
   plot_ly(x = ~grade, y = ~score, color = ~grade, type = "box", colors = "viridis")
+```
 
+#ZIPCODE VS SCORE (Scatter Plot)
 
-#an option: ZIPCODE VS SCORE (YES)
+### Chart D
+
+```{r}
+#ZIPCODE VS SCORE (scatter)
 rest_inspec2 %>% 
   plot_ly(x = ~zipcode, y = ~score, color = ~grade, type = "scatter",
           text = ~dba, mode = "markers", colors = "viridis")
-
 ```
-
-
