@@ -2,7 +2,7 @@
 title: "Dashboard"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
+    orientation: rows
     vertical_layout: fill
     source: embed
 ---
@@ -31,7 +31,7 @@ filter(boro == "STATEN ISLAND",
 
 ```
 
-Row
+Row {data-width=250}
 -----------------------------------------------------------------------
 Number of restaurants per grade (Bar Graph) 
 
@@ -45,9 +45,9 @@ rest_inspec2 %>%
   plot_ly(x = ~grade , y = ~n, color = ~grade, type = "bar", colors = "viridis")
 ```
 
-Row
+Row {data-width=250}
 -----------------------------------------------------------------------
-ZIPCODE VS CUISINE (Scatter Plot) {data-width=250}
+ZIPCODE VS CUISINE (Scatter Plot) 
 
 #
 ### Chart B
@@ -62,7 +62,7 @@ plot_ly(
     color = ~grade, alpha = 0.5)
 ```
 
-Row
+Row {data-width=250}
 -----------------------------------------------------------------------
 GRADE VS SCORE (Box Plot) 
 
@@ -75,7 +75,7 @@ rest_inspec2 %>%
   plot_ly(x = ~grade, y = ~score, color = ~grade, type = "box", colors = "viridis")
 ```
 
-Row
+Row {data-width=250}
 -----------------------------------------------------------------------
 ZIPCODE VS SCORE (Scatter Plot) 
 
