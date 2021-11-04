@@ -31,7 +31,7 @@ filter(boro == "STATEN ISLAND",
 
 ```
 
-Column {data-width=250}
+Row
 -----------------------------------------------------------------------
 Number of restaurants per grade (Bar Graph) 
 
@@ -45,10 +45,10 @@ rest_inspec2 %>%
   plot_ly(x = ~grade , y = ~n, color = ~grade, type = "bar", colors = "viridis")
 ```
 
-Column {data-width=650}
+Row
 -----------------------------------------------------------------------
 ZIPCODE VS CUISINE (Scatter Plot) {data-width=250}
------------------------------------------------------------------------
+
 #
 ### Chart B
 
@@ -62,7 +62,7 @@ plot_ly(
     color = ~grade, alpha = 0.5)
 ```
 
-Column {data-width=250}
+Row
 -----------------------------------------------------------------------
 GRADE VS SCORE (Box Plot) 
 
@@ -75,7 +75,7 @@ rest_inspec2 %>%
   plot_ly(x = ~grade, y = ~score, color = ~grade, type = "box", colors = "viridis")
 ```
 
-Column {data-width=250}
+Row
 -----------------------------------------------------------------------
 ZIPCODE VS SCORE (Scatter Plot) 
 
