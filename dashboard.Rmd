@@ -44,8 +44,6 @@ rest_inspec2 %>%
   plot_ly(x = ~grade , y = ~n, color = ~grade, type = "bar", colors = "viridis")
 ```
    
-Row
--------------------------------------
     
 ### Chart 2
     
@@ -58,11 +56,23 @@ plot_ly(
     mode = "markers",
     color = ~grade, alpha = 0.5)
 ```
-    
+
+Row
+-------------------------------------
+
 ### Chart 3
 
 ```{r}
 #GRADE VS SCORE (box)
 rest_inspec2 %>% 
   plot_ly(x = ~grade, y = ~score, color = ~grade, type = "box", colors = "viridis")
+```
+
+### Chart 4
+
+```{r}
+#ZIPCODE VS SCORE
+rest_inspec2 %>% 
+  plot_ly(x = ~zipcode, y = ~score, color = ~grade, type = "scatter",
+          text = ~dba, mode = "markers", colors = "viridis")
 ```
