@@ -1,21 +1,21 @@
 ---
-title: "Plotly"
+title: "Dashboardtrial"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
-
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+    source: embed
 ---
-
-```{r}
+ 
+```{r setup, include=FALSE}
+library(flexdashboard)
 library(tidyverse)
 library(dplyr)
 library(plotly)
 library(p8105.datasets)
 ```
-#
-# Loading and cleaning data
-#
+
+
 ```{r}
 data("rest_inspec") 
 
@@ -30,11 +30,14 @@ filter(boro == "STATEN ISLAND",
        !grade == "Z")  
 
 ```
-#
-# Making Plotly Plots
-#
+   
+Row
+-------------------------------------
+    
+### Chart 1
+    
 ```{r}
-#Number of restaurants per grade
+#Number of restaurants per grade (Bar Graph) 
 rest_inspec2 %>% 
   count(grade) %>% 
   mutate(grade = fct_reorder(grade, n)) %>% 
@@ -44,37 +47,41 @@ rest_inspec2 %>%
          yaxis = list(title = "Number of Restaurants"),
          xaxis = list(title =  "Letter Grade")
          )
-
-#ZIPCODE VS CUISINE 
+```
+   
+    
+### Chart 2
+    
+```{r}
+#ZIPCODE VS CUISINE (scatter)
 rest_inspec2 %>% 
 plot_ly(
     x = ~zipcode, y = ~cuisine_description, 
     type = "scatter", text = ~dba,
     mode = "markers",
-    color = ~grade, alpha = 0.5) %>% 
+    color = ~grade, alpha = 0.5) %>%
   layout(title = 'Types of Cuisine Located in Each Staten Island Zip Code',
          yaxis = list(title = "Type of Cuisine"),
          xaxis = list(title =  "Zip Code")
          )
+```
 
-#GRADE VS SCORE 
+Row
+-------------------------------------
+
+### Chart 3
+
+```{r}
+#GRADE VS SCORE (box)
 rest_inspec2 %>% 
-  plot_ly(x = ~grade, y = ~score, color = ~grade, type = "box", colors = "viridis") %>% 
-  layout(title = 'Distribution of Scores per Grade of Staten Island Resturants',
-         yaxis = list(title = "Score"),
-         xaxis = list(title =  "Letter Grade")
-         )
+  plot_ly(x = ~grade, y = ~score, color = ~grade, type = "box", colors = "viridis")
+```
 
+### Chart 4
 
+```{r}
 #ZIPCODE VS SCORE
 rest_inspec2 %>% 
   plot_ly(x = ~zipcode, y = ~score, color = ~grade, type = "scatter",
-          text = ~dba, mode = "markers", colors = "viridis") %>% 
-  layout(title = 'Scores of Staten Island Restuarnts by Zip Codes',
-         yaxis = list(title = "Score"),
-         xaxis = list(title =  "Zip Code")
-         )
-
+          text = ~dba, mode = "markers", colors = "viridis")
 ```
-
-
