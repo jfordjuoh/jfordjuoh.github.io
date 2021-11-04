@@ -13,8 +13,9 @@ library(dplyr)
 library(plotly)
 library(p8105.datasets)
 ```
-
+#
 # Loading and cleaning data
+#
 ```{r}
 data("rest_inspec") 
 
@@ -27,20 +28,20 @@ filter(boro == "STATEN ISLAND",
        !grade == "Not Yet Graded", 
        !grade == "P", 
        !grade == "Z")  
-  
-#why isn't my filter working in one line?
-```
 
-#Making Plotly Plots
+```
+#
+# Making Plotly Plots
+#
 ```{r}
-#YES: Number of restaurants per grade
+#Number of restaurants per grade
 rest_inspec2 %>% 
   count(grade) %>% 
   mutate(grade = fct_reorder(grade, n)) %>% 
   plot_ly(x = ~grade , y = ~n, color = ~grade, type = "bar", colors = "viridis")
 
 
-#One of the plots: ZIPCODE VS CUISINE (YES)
+#ZIPCODE VS CUISINE 
 rest_inspec2 %>% 
 plot_ly(
     x = ~zipcode, y = ~cuisine_description, 
@@ -54,7 +55,7 @@ rest_inspec2 %>%
   plot_ly(x = ~grade, y = ~score, color = ~grade, type = "box", colors = "viridis")
 
 
-#an option: ZIPCODE VS SCORE (YES)
+#ZIPCODE VS SCORE
 rest_inspec2 %>% 
   plot_ly(x = ~zipcode, y = ~score, color = ~grade, type = "scatter",
           text = ~dba, mode = "markers", colors = "viridis")
